@@ -1,0 +1,2941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YATRA360 — Easy to Explore The India | Dynamic AI Journey Planner & Smart Heritage Booking</title>
+<meta name="description" content="YATRA360: Next-Gen AI Journey Planner with dynamic re-planning, real-time delay absorption, right costing breakdown, and Smart Heritage Booking for Agra, Muzaffarpur & across India.">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-primary: #0d9488;
+  --teal-dark: #0f766e;
+  --teal-light: #e6fffa;
+  --teal-glow: rgba(13, 148, 136, 0.2);
+  
+  --blue-primary: #0284c7;
+  --blue-dark: #0369a1;
+  --blue-light: #e0f2fe;
+  --blue-accent: #2563eb;
+
+  --amber-primary: #f59e0b;
+  --amber-dark: #d97706;
+  --amber-light: #fffbeb;
+  --amber-glow: rgba(245, 158, 11, 0.25);
+
+  --slate-dark: #0f172a;
+  --slate-card: #1e293b;
+  --gray-bg: #f8fafc;
+  --gray-border: #e2e8f0;
+  --gray-text: #475569;
+  --white: #ffffff;
+  
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 30px rgba(13, 148, 136, 0.12);
+  --shadow-lg: 0 20px 45px rgba(3, 105, 161, 0.18);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--gray-bg);
+  color: var(--slate-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .brand-title {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* HEADER & ATTRACTIVE LOGO */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--gray-border);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.04);
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ATTRACTIVE YATRA360 LOGO */
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  position: relative;
+}
+
+.logo-badge-wrapper {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, #0d9488, #0284c7);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 900;
+  font-size: 20px;
+  box-shadow: 0 8px 20px rgba(13, 148, 136, 0.4);
+  position: relative;
+  z-index: 2;
+  border: 1.5px solid rgba(255,255,255,0.6);
+}
+
+.logo-orbit-ring {
+  position: absolute;
+  top: -4px; left: -4px; right: -4px; bottom: -4px;
+  border-radius: 18px;
+  border: 2px dashed var(--amber-primary);
+  animation: orbitRing 8s linear infinite;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+@keyframes orbitRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.brand-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.brand-title {
+  font-size: 28px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #0f766e 0%, #0369a1 60%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.8px;
+  line-height: 1;
+}
+
+.brand-deg {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--amber-primary), var(--amber-dark));
+  padding: 2px 7px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+}
+
+.brand-tagline {
+  font-size: 9.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--amber-dark);
+  background: var(--amber-light);
+  padding: 3px 9px;
+  border-radius: 20px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  margin-top: 3px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--gray-text);
+  font-weight: 700;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--teal-primary);
+}
+
+.nav-cta {
+  display: flex;
+  gap: 12px;
+}
+
+/* BUTTONS */
+.btn {
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 12px 22px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--teal-primary), var(--blue-primary));
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(13, 148, 136, 0.45);
+}
+
+.btn-amber {
+  background: linear-gradient(135deg, var(--amber-primary), var(--amber-dark));
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+}
+
+.btn-amber:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
+}
+
+.btn-outline {
+  background: var(--white);
+  border: 2px solid var(--teal-primary);
+  color: var(--teal-dark);
+}
+
+.btn-outline:hover {
+  background: var(--teal-light);
+}
+
+.btn-light {
+  background: var(--blue-light);
+  color: var(--blue-dark);
+}
+
+.btn-light:hover {
+  background: #bae6fd;
+}
+
+.btn-danger {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.btn-danger:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #0f172a 0%, #0f766e 50%, #0369a1 100%);
+  color: var(--white);
+  padding: 80px 24px 100px;
+  overflow: hidden;
+}
+
+.hero-bg-shapes {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.3;
+}
+
+.glow-1 { top: -100px; left: -100px; background: var(--amber-primary); }
+.glow-2 { bottom: -100px; right: -100px; background: var(--teal-primary); }
+
+.hero-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--amber-primary);
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.hero-title span {
+  background: linear-gradient(135deg, #fef08a, var(--amber-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 32px;
+  font-weight: 400;
+  max-width: 600px;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.stat-item h4 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--amber-primary);
+}
+
+.stat-item p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* HERO CARDS / QUICK PLANNER PREVIEW */
+.hero-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-lg);
+  color: var(--slate-dark);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.hero-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--teal-dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.preset-btns {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.preset-chip {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 12px;
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  border: 1px solid rgba(13,148,136,0.3);
+  cursor: pointer;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--gray-text);
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.field input, .field select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--gray-border);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.field input:focus, .field select:focus {
+  border-color: var(--teal-primary);
+  box-shadow: 0 0 0 4px var(--teal-glow);
+}
+
+/* SECTION CONTAINER */
+.section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 90px 24px;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 50px;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--teal-primary);
+  background: var(--teal-light);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--slate-dark);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.section-desc {
+  font-size: 16px;
+  color: var(--gray-text);
+}
+
+/* IDEA REPRESENTATION: DYNAMIC PLANNING ENGINE */
+.planner-showcase {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-border);
+  box-shadow: var(--shadow-md);
+  padding: 40px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.feature-card {
+  background: var(--gray-bg);
+  border-radius: var(--radius-md);
+  padding: 26px;
+  border: 1.5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  border-color: var(--teal-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sm);
+}
+
+.feature-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.icon-teal { background: var(--teal-light); color: var(--teal-primary); }
+.icon-blue { background: var(--blue-light); color: var(--blue-primary); }
+.icon-amber { background: var(--amber-light); color: var(--amber-dark); }
+
+.feature-card h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: var(--gray-text);
+}
+
+/* INTERACTIVE DYNAMIC SIMULATOR */
+.sim-box {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  border-radius: var(--radius-md);
+  padding: 30px;
+  color: var(--white);
+  margin-top: 30px;
+}
+
+.sim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.sim-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.timeline-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.flow-step {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  border-left: 4px solid var(--teal-primary);
+}
+
+.flow-step.adjusted {
+  border-left-color: var(--amber-primary);
+  background: rgba(245, 158, 11, 0.12);
+}
+
+.flow-step.locked {
+  border-left-color: #10b981;
+}
+
+.flow-step.moved {
+  border-left-color: #94a3b8;
+  opacity: 0.65;
+}
+
+.flow-time {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--amber-primary);
+  margin-bottom: 4px;
+}
+
+.flow-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* SMART HERITAGE BOOKING - AGRA & MUZAFFARPUR */
+.heritage-section {
+  background: linear-gradient(180deg, var(--gray-bg) 0%, var(--teal-light) 100%);
+  padding: 90px 24px;
+}
+
+.city-filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: var(--white);
+  border: 1.5px solid var(--gray-border);
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--gray-text);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, var(--teal-primary), var(--blue-primary));
+  color: var(--white);
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3);
+}
+
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.place-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--gray-border);
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.place-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 35px rgba(13, 148, 136, 0.18);
+}
+
+.place-img-wrapper {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.place-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.place-card:hover .place-img {
+  transform: scale(1.08);
+}
+
+.city-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--amber-primary);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.crowd-badge {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  color: var(--slate-dark);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot-green { width: 8px; height: 8px; background: #10b981; border-radius: 50%; display: inline-block; }
+.dot-amber { width: 8px; height: 8px; background: var(--amber-primary); border-radius: 50%; display: inline-block; }
+.dot-red { width: 8px; height: 8px; background: #ef4444; border-radius: 50%; display: inline-block; }
+
+.place-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.place-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--slate-dark);
+  margin-bottom: 8px;
+}
+
+.place-location {
+  font-size: 13px;
+  color: var(--teal-dark);
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.place-desc {
+  font-size: 14px;
+  color: var(--gray-text);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.place-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.chip {
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--blue-light);
+  color: var(--blue-dark);
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+/* ACTUAL LIVE ENGINE INTEGRATION */
+.live-engine-section {
+  background: var(--white);
+  border-top: 1px solid var(--gray-border);
+}
+
+.engine-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-border);
+  box-shadow: var(--shadow-md);
+  padding: 32px;
+  margin-bottom: 30px;
+}
+
+/* JOURNEY START & ANIMATED ROUTE TRACKER */
+.journey-start-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #0f766e 60%, #0369a1 100%);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  color: var(--white);
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-md);
+}
+
+.banner-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.pulse-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.4);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.pulse-dot-green {
+  width: 8px; height: 8px; background: #34d399; border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  animation: pulseGreen 1.5s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(52, 211, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+
+/* ROUTE ANIMATION PATH */
+.route-anim-wrapper {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.route-line-bg {
+  position: relative;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  margin: 30px 20px 20px;
+}
+
+.route-line-progress {
+  position: absolute;
+  top: 0; left: 0; height: 100%;
+  background: linear-gradient(90deg, var(--teal-primary), var(--amber-primary));
+  width: 0%;
+  border-radius: 3px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vehicle-marker {
+  position: absolute;
+  top: -16px;
+  left: 0%;
+  transform: translateX(-50%);
+  background: var(--amber-primary);
+  color: var(--slate-dark);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.6);
+  transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 5;
+}
+
+.waypoint-nodes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -10px;
+}
+
+.node-item {
+  text-align: center;
+  position: relative;
+}
+
+.node-dot {
+  width: 14px; height: 14px;
+  background: var(--white);
+  border: 3px solid var(--teal-primary);
+  border-radius: 50%;
+  margin: 0 auto 6px;
+}
+
+.node-item.active .node-dot {
+  background: var(--amber-primary);
+  border-color: var(--white);
+  box-shadow: 0 0 10px var(--amber-primary);
+}
+
+.node-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.tabs-header {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--gray-border);
+  padding-bottom: 12px;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gray-text);
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--teal-primary), var(--blue-primary));
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.metric-box {
+  background: var(--gray-bg);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  border: 1px solid var(--gray-border);
+}
+
+.metric-box label {
+  font-size: 12px;
+  color: var(--gray-text);
+  font-weight: 600;
+  display: block;
+}
+
+.metric-box b {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--slate-dark);
+  margin-top: 4px;
+  display: block;
+}
+
+/* ITINERARY ITEM & TICK CONNECTED TIMELINE */
+.itinerary-list-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.itinerary-item-card {
+  position: relative;
+  background: var(--gray-bg);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--gray-border);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 40px 110px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.itinerary-item-card.completed {
+  background: #f0fdf4;
+  border-color: #86efac;
+}
+
+.itinerary-item-card.completed h4 {
+  text-decoration: line-through;
+  color: #166534;
+}
+
+.itinerary-item-card.deleted {
+  display: none !important;
+}
+
+.tick-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-tick {
+  width: 26px; height: 26px;
+  border-radius: 8px;
+  border: 2px solid var(--teal-primary);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  background: var(--white);
+  transition: all 0.2s ease;
+}
+
+.custom-tick.checked {
+  background: var(--teal-primary);
+  color: var(--white);
+  border-color: var(--teal-primary);
+}
+
+.time-badge {
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--teal-dark);
+  background: var(--teal-light);
+  padding: 6px 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.status-tag {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.status-upcoming { background: #e2e8f0; color: #475569; }
+.status-done { background: #dcfce7; color: #15803d; }
+.status-live { background: #dbeafe; color: #1d4ed8; }
+.status-risk { background: var(--amber-light); color: var(--amber-dark); }
+.status-moved { background: #f1f5f9; color: #94a3b8; text-decoration: line-through; }
+
+.item-action-bar {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* ENHANCED SMART HUB & DETAILED COSTING BREAKDOWN */
+.cost-dashboard {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-border);
+  box-shadow: var(--shadow-md);
+  padding: 32px;
+}
+
+.cost-tier-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.tier-card {
+  flex: 1;
+  min-width: 220px;
+  background: var(--gray-bg);
+  border: 2px solid var(--gray-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tier-card.active {
+  background: var(--teal-light);
+  border-color: var(--teal-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.tier-card h5 {
+  font-size: 15px;
+  color: var(--slate-dark);
+  margin-bottom: 4px;
+}
+
+.tier-card .price {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--teal-dark);
+}
+
+.cost-breakdown-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.cost-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cost-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: var(--gray-bg);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gray-border);
+}
+
+.cost-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cost-icon-box {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+
+.cost-item-name {
+  font-weight: 700;
+  font-size: 14.5px;
+}
+
+.cost-item-sub {
+  font-size: 12px;
+  color: var(--gray-text);
+}
+
+.cost-item-amount {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--slate-dark);
+}
+
+/* COST DISTRIBUTION BAR */
+.cost-progress-wrap {
+  background: var(--slate-dark);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+.bar-container {
+  height: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 7px;
+  display: flex;
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.bar-segment {
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.seg-trans { background: var(--blue-primary); }
+.seg-stay { background: var(--teal-primary); }
+.seg-pass { background: var(--amber-primary); }
+.seg-food { background: #ec4899; }
+.seg-buf { background: #10b981; }
+
+.legend-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-dot {
+  width: 10px; height: 10px; border-radius: 50%; display: inline-block;
+}
+
+/* MODAL SYSTEM FOR SMART TICKETS & REARRANGE */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 32px;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-card {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--gray-bg);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-text);
+}
+
+/* TICKET DESIGN */
+.ticket-preview {
+  background: linear-gradient(135deg, #0f172a, #0f766e);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-top: 20px;
+  position: relative;
+  border: 2px dashed var(--amber-primary);
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.qr-placeholder {
+  width: 100px;
+  height: 100px;
+  background: var(--white);
+  padding: 8px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* AI CHATBOT WIDGET */
+.chatbot-trigger {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  background: linear-gradient(135deg, var(--teal-primary), var(--blue-primary));
+  color: var(--white);
+  border: none;
+  padding: 14px 22px;
+  border-radius: 40px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 10px 25px rgba(13, 148, 136, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chatbot-trigger:hover {
+  transform: scale(1.05);
+  box-shadow: 0 14px 30px rgba(13, 148, 136, 0.5);
+}
+
+.chatbot-pulse {
+  width: 10px;
+  height: 10px;
+  background: var(--amber-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+  animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+.chat-panel {
+  position: fixed;
+  bottom: 95px;
+  right: 28px;
+  width: 380px;
+  max-width: 90vw;
+  height: 540px;
+  max-height: 80vh;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--gray-border);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chat-panel.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.chat-header {
+  background: linear-gradient(135deg, var(--teal-dark), var(--blue-dark));
+  color: var(--white);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-header h4 {
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chat-body {
+  flex-grow: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--gray-bg);
+}
+
+.chat-msg {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.chat-msg.bot {
+  background: var(--white);
+  color: var(--slate-dark);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  border: 1px solid var(--gray-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.chat-msg.user {
+  background: linear-gradient(135deg, var(--teal-primary), var(--blue-primary));
+  color: var(--white);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.faq-chips {
+  padding: 10px 16px;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  background: var(--white);
+  border-top: 1px solid var(--gray-border);
+  border-bottom: 1px solid var(--gray-border);
+}
+
+.faq-btn {
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.faq-btn:hover {
+  background: var(--teal-primary);
+  color: var(--white);
+}
+
+.chat-footer {
+  padding: 12px 16px;
+  background: var(--white);
+  display: flex;
+  gap: 8px;
+}
+
+.chat-input {
+  flex-grow: 1;
+  border: 1px solid var(--gray-border);
+  border-radius: 20px;
+  padding: 10px 16px;
+  font-size: 13px;
+  outline: none;
+  font-family: inherit;
+}
+
+.chat-input:focus {
+  border-color: var(--teal-primary);
+}
+
+.chat-send {
+  background: var(--teal-primary);
+  color: var(--white);
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FOOTER */
+footer {
+  background: var(--slate-dark);
+  color: var(--white);
+  padding: 60px 24px 30px;
+  border-top: 4px solid var(--teal-primary);
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.footer-brand p {
+  color: #94a3b8;
+  font-size: 14px;
+  max-width: 320px;
+}
+
+.footer-col h5 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--amber-primary);
+  margin-bottom: 16px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+  color: var(--teal-primary);
+}
+
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #94a3b8;
+  font-size: 13px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 1024px) {
+  .hero-container { grid-template-columns: 1fr; }
+  .feature-grid, .places-grid { grid-template-columns: repeat(2, 1fr); }
+  .timeline-flow { grid-template-columns: repeat(2, 1fr); }
+  .cost-breakdown-grid { grid-template-columns: 1fr; }
+  .footer-container { grid-template-columns: 1fr 1fr; }
+  .itinerary-item-card { grid-template-columns: 35px 95px 1fr; }
+  .item-action-bar { grid-column: 1 / -1; margin-top: 10px; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero-title { font-size: 36px; }
+  .feature-grid, .places-grid { grid-template-columns: 1fr; }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .form-grid { grid-template-columns: 1fr; }
+  .itinerary-item-card { grid-template-columns: 1fr; gap: 10px; }
+  .footer-container { grid-template-columns: 1fr; }
+  .timeline-flow { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAVIGATION WITH ULTRA-ATTRACTIVE YATRA360 LOGO -->
+<header>
+  <div class="nav-container">
+    <a href="#" class="logo-group">
+      <div class="logo-badge-wrapper">
+        <div class="logo-icon">Y360</div>
+        <div class="logo-orbit-ring"></div>
+      </div>
+      <div class="brand-text-container">
+        <div class="brand-title-wrap">
+          <span class="brand-title">YATRA</span>
+          <span class="brand-deg">360°</span>
+        </div>
+        <span class="brand-tagline">EASY TO EXPLORE THE INDIA</span>
+      </div>
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="#how-it-works">How AI Works</a></li>
+      <li><a href="#smart-heritage">Smart Heritage Passes</a></li>
+      <li><a href="#live-planner">Live Trip Engine</a></li>
+      <li><a href="#smart-modules">Smart Hub & Costing</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="#live-planner" class="btn btn-outline">🗺️ Live Trip</a>
+      <a href="#smart-heritage" class="btn btn-amber">🎟️ Heritage Passes</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-bg-shapes">
+    <div class="hero-glow glow-1"></div>
+    <div class="hero-glow glow-2"></div>
+  </div>
+
+  <div class="hero-container">
+    <div>
+      <div class="hero-badge">
+        <span>✨ NEXT-GEN AI TRAVEL ENGINE</span> • AGRA & MUZAFFARPUR
+      </div>
+      <h1 class="hero-title">
+        AI Journey Planner with <span>Dynamic Re-Planning</span> & Smart Heritage Passes
+      </h1>
+      <p class="hero-subtitle">
+        Explore India seamlessly! YATRA360 dynamically recalculates your daily schedule when delays occur — while keeping hard hotel check-ins and Taj Mahal/Heritage tickets 100% protected.
+      </p>
+
+      <div style="display:flex; gap:14px; flex-wrap:wrap;">
+        <a href="#live-planner" class="btn btn-primary" style="padding:15px 28px; font-size:16px;">
+          🚀 Try Dynamic Planner
+        </a>
+        <a href="#smart-heritage" class="btn btn-amber" style="padding:15px 28px; font-size:16px;">
+          🏛️ Smart Heritage Booking
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <h4>100%</h4>
+          <p>Deadline Protection</p>
+        </div>
+        <div class="stat-item">
+          <h4>7 Places</h4>
+          <p>Agra & Muzaffarpur Passes</p>
+        </div>
+        <div class="stat-item">
+          <h4>24/7</h4>
+          <p>AI Chatbot Support</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUICK AI TRIP BUILDER CARD -->
+    <div class="hero-card">
+      <h3>
+        <span>🧭</span> Build Your AI Trip
+      </h3>
+      <div class="preset-btns">
+        <span class="preset-chip" onclick="setPreset('Delhi','Agra','Heritage & Wonders')">📍 Preset: Delhi → Agra</span>
+        <span class="preset-chip" onclick="setPreset('Patna','Muzaffarpur','Heritage & Spiritual')">📍 Preset: Patna → Muzaffarpur</span>
+      </div>
+
+      <div class="form-grid">
+        <div class="field">
+          <label>📍 Source City</label>
+          <input id="sourceInput" value="Delhi" placeholder="e.g. Delhi, Patna">
+        </div>
+        <div class="field">
+          <label>🎯 Destination</label>
+          <input id="destinationInput" value="Agra" placeholder="e.g. Agra, Muzaffarpur">
+        </div>
+        <div class="field">
+          <label>📅 Start Date</label>
+          <input id="startInput" type="date" value="2026-09-20">
+        </div>
+        <div class="field">
+          <label>📅 End Date</label>
+          <input id="endInput" type="date" value="2026-09-22">
+        </div>
+        <div class="field">
+          <label>👥 Travellers</label>
+          <input id="travellersInput" type="number" min="1" value="3">
+        </div>
+        <div class="field">
+          <label>⭐ Travel Vibe</label>
+          <select id="styleInput">
+            <option value="Heritage & Wonders">Heritage & Wonders</option>
+            <option value="Heritage & Spiritual">Heritage & Spiritual</option>
+            <option value="Agro-Tourism & Culture">Agro-Tourism & Culture</option>
+            <option value="Budget Explorer">Budget Explorer</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="margin-top:20px; display:flex; gap:10px;">
+        <button class="btn btn-primary" style="flex:1;" onclick="planTrip()">
+          ✨ Generate AI Plan
+        </button>
+        <button class="btn btn-light" onclick="swapLocations()">
+          ⇄ Swap
+        </button>
+      </div>
+
+      <div id="planResult" style="display:none; margin-top:16px; padding:14px; background:var(--teal-light); border-radius:12px; border:1px solid var(--teal-primary); font-size:13px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: IDEA REPRESENTATION - DYNAMIC PLANNING ENGINE -->
+<section class="section" id="how-it-works">
+  <div class="section-header">
+    <span class="section-tag">THE YATRA360 IDEA</span>
+    <h2 class="section-title">How Dynamic AI Re-Planning Works</h2>
+    <p class="section-desc">
+      Static itineraries break down when flight delays, temple queues, or Agra traffic happen. YATRA360 locks what's finished, protects hard deadlines, and re-allocates remaining time in real-time.
+    </p>
+  </div>
+
+  <div class="planner-showcase">
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon icon-teal">⚡</div>
+        <h4>1. Disruption Signal Monitor</h4>
+        <p>Detects unexpected delays at sight-seeing spots, traffic jams, or rain triggers instantly during your live trip execution.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon icon-blue">🔒</div>
+        <h4>2. Locked Hard Constraints</h4>
+        <p>Fixed bookings (Hotel check-in by 8:30 PM, Taj Mahal Sunrise VIP slots) remain 100% protected and untouched.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon icon-amber">🔄</div>
+        <h4>3. Selective Re-Optimization</h4>
+        <p>Optional or flexible activities (e.g. Mehtab Bagh garden or local craft market) shift to Day 2 automatically without ruining Day 3-5.</p>
+      </div>
+    </div>
+
+    <!-- DYNAMIC PLANNER INTERACTIVE SIMULATOR -->
+    <div class="sim-box">
+      <div class="sim-header">
+        <div>
+          <h3 style="font-size:20px; font-weight:800; color:var(--amber-primary);">
+            🎬 Live Re-Planning Interactive Simulator
+          </h3>
+          <p style="font-size:13px; color:#94a3b8;">
+            Simulate a real delay during your Day 1 travel to see YATRA360's engine in action.
+          </p>
+        </div>
+        <div class="sim-controls">
+          <button class="btn btn-amber" onclick="leave()">
+            ⏰ Simulate +60 Min Delay at Spot
+          </button>
+          <button class="btn btn-light" onclick="resetSim()">
+            🔄 Reset Schedule
+          </button>
+        </div>
+      </div>
+
+      <div class="timeline-flow" id="simTimeline">
+        <div class="flow-step locked" id="step1">
+          <div class="flow-time">06:00 AM - 08:30 AM</div>
+          <div class="flow-title">🕌 Taj Mahal (Sunrise)</div>
+          <small style="color:#a7f3d0;">✓ Completed</small>
+        </div>
+
+        <div class="flow-step" id="step2">
+          <div class="flow-time">09:30 AM - 12:30 PM</div>
+          <div class="flow-title">🏰 Agra Fort Tour</div>
+          <small id="step2Status" style="color:#93c5fd;">In Progress (Guided)</small>
+        </div>
+
+        <div class="flow-step" id="step3">
+          <div class="flow-time">01:00 PM - 03:00 PM</div>
+          <div class="flow-title">🍽️ Lunch & Handicrafts</div>
+          <small id="step3Status" style="color:#cbd5e1;">Scheduled</small>
+        </div>
+
+        <div class="flow-step" id="step4">
+          <div class="flow-time">04:00 PM - 06:00 PM</div>
+          <div class="flow-title">🌅 Mehtab Bagh Sunset</div>
+          <small id="step4Status" style="color:#cbd5e1;">Scheduled</small>
+        </div>
+      </div>
+
+      <div id="simLog" style="margin-top:16px; padding:12px; background:rgba(255,255,255,0.06); border-radius:8px; font-size:13px; font-family:monospace; color:#5eead4;">
+        🟢 System Status: Operating normally. All constraints on track.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: SMART HERITAGE BOOKING - AGRA & MUZAFFARPUR -->
+<section class="heritage-section" id="smart-heritage">
+  <div class="section-header">
+    <span class="section-tag">SMART HERITAGE BOOKING</span>
+    <h2 class="section-title">Smart Digital Tickets & Passes</h2>
+    <p class="section-desc">
+      Instant QR ticket booking, VIP slot reservation, crowd level monitoring, and multilingual audio guides for iconic heritage spots in Agra & Muzaffarpur.
+    </p>
+  </div>
+
+  <!-- CITY FILTER BUTTONS -->
+  <div class="city-filter-bar">
+    <button class="filter-btn active" onclick="filterPlaces('all', this)">🌟 All Destinations (7)</button>
+    <button class="filter-btn" onclick="filterPlaces('agra', this)">🏰 Agra Heritage (4)</button>
+    <button class="filter-btn" onclick="filterPlaces('muzaffarpur', this)">🏛️ Muzaffarpur Heritage (3)</button>
+  </div>
+
+  <div class="places-grid" id="placesGrid">
+    
+    <!-- AGRA PLACE 1: TAJ MAHAL -->
+    <div class="place-card agra">
+      <div class="place-img-wrapper">
+        <img src="assets/taj_mahal.jpg" alt="Taj Mahal Agra" class="place-img">
+        <span class="city-tag">AGRA • UNESCO WORLD HERITAGE</span>
+        <span class="crowd-badge"><span class="dot-red"></span> High Crowd (78%)</span>
+      </div>
+      <div class="place-content">
+        <h3 class="place-title">Taj Mahal</h3>
+        <div class="place-location">📍 Dharmapuri, Tajganj, Agra, Uttar Pradesh</div>
+        <p class="place-desc">
+          World Wonder & symbol of eternal love. Experience sunrise entry, fast-track mausoleum tickets, and battery golf cart access.
+        </p>
+        <div class="place-features">
+          <span class="chip">🌅 Sunrise Entry Pass</span>
+          <span class="chip">👑 Main Mausoleum Ticket</span>
+          <span class="chip">🛺 Battery Shuttle</span>
+        </div>
+        <button class="btn btn-primary" onclick="openBookingModal('Taj Mahal', 'Agra World Heritage', 50)">
+          🎟️ Book Taj Mahal VIP Pass
+        </button>
+      </div>
+    </div>
+
+    <!-- AGRA PLACE 2: AGRA FORT -->
+    <div class="place-card agra">
+      <div class="place-img-wrapper">
+        <img src="assets/agra_fort.jpg" alt="Agra Fort" class="place-img">
+        <span class="city-tag">AGRA • MUGHAL FORTRESS</span>
+        <span class="crowd-badge"><span class="dot-amber"></span> Moderate Crowd (52%)</span>
+      </div>
+      <div class="place-content">
+        <h3 class="place-title">Agra Fort</h3>
+        <div class="place-location">📍 Agra Fort, Rakabganj, Agra, Uttar Pradesh</div>
+        <p class="place-desc">
+          Majestic red sandstone fortress of Mughal Emperors. Smart tickets include Diwan-i-Am, Diwan-i-Khas & evening Light & Sound show pass.
+        </p>
+        <div class="place-features">
+          <span class="chip">📱 Smart QR Ticket</span>
+          <span class="chip">🎧 Audio Guide (HI/EN)</span>
+          <span class="chip">🎆 Light & Sound Show</span>
+        </div>
+        <button class="btn btn-primary" onclick="openBookingModal('Agra Fort', 'Mughal Heritage', 35)">
+          🎟️ Book Agra Fort Pass
+        </button>
+      </div>
+    </div>
+
+    <!-- AGRA PLACE 3: FATEHPUR SIKRI -->
+    <div class="place-card agra">
+      <div class="place-img-wrapper">
+        <img src="assets/fatehpur_sikri.jpg" alt="Fatehpur Sikri Agra" class="place-img">
+        <span class="city-tag">AGRA • HISTORICAL CITY</span>
+        <span class="crowd-badge"><span class="dot-green"></span> Low Crowd (25%)</span>
+      </div>
+      <div class="place-content">
+        <h3 class="place-title">Fatehpur Sikri & Buland Darwaza</h3>
+        <div class="place-location">📍 Fatehpur Sikri, Agra District, Uttar Pradesh</div>
+        <p class="place-desc">
+          Emperor Akbar's 16th-century red sandstone capital featuring the world's highest gateway Buland Darwaza and Salim Chishti Dargah.
+        </p>
+        <div class="place-features">
+          <span class="chip">🏛️ Complex Pass</span>
+          <span class="chip">⚡ Electric Shuttle Pass</span>
+          <span class="chip">📜 Heritage Guide</span>
+        </div>
+        <button class="btn btn-primary" onclick="openBookingModal('Fatehpur Sikri', 'Akbar Heritage City', 40)">
+          🎟️ Book Fatehpur Sikri Pass
+        </button>
+      </div>
+    </div>
+
+    <!-- AGRA PLACE 4: MEHTAB BAGH -->
+    <div class="place-card agra">
+      <div class="place-img-wrapper">
+        <img src="assets/mehtab_bagh.jpg" alt="Mehtab Bagh Agra" class="place-img">
+        <span class="city-tag">AGRA • SUNSET GARDEN</span>
+        <span class="crowd-badge"><span class="dot-green"></span> Optimal Visit Time (35%)</span>
+      </div>
+      <div class="place-content">
+        <h3 class="place-title">Mehtab Bagh & Taj Sunset Viewpoint</h3>
+        <div class="place-location">📍 Opposite Taj Mahal, Yamuna Bank, Agra</div>
+        <p class="place-desc">
+          Charbagh garden complex offering magical sunset reflection views of Taj Mahal across Yamuna river. Ideal for photography lovers.
+        </p>
+        <div class="place-features">
+          <span class="chip">🌅 Sunset View Slot</span>
+          <span class="chip">📸 Photography Pass</span>
+          <span class="chip">🌳 Riverside Walk</span>
+        </div>
+        <button class="btn btn-primary" onclick="openBookingModal('Mehtab Bagh', 'Sunset Heritage Garden', 25)">
+          🎟️ Book Mehtab Bagh Ticket
+        </button>
+      </div>
+    </div>
+
+    <!-- MUZAFFARPUR PLACE 1: BABA GARIB NATH TEMPLE -->
+    <div class="place-card muzaffarpur">
+      <div class="place-img-wrapper">
+        <img src="assets/garibnath.jpg" alt="Baba Garib Nath Temple Muzaffarpur" class="place-img">
+        <span class="city-tag">MUZAFFARPUR • SPIRITUAL</span>
+        <span class="crowd-badge"><span class="dot-amber"></span> Moderate Crowd (42%)</span>
+      </div>
+      <div class="place-content">
+        <h3 class="place-title">Baba Garib Nath Temple</h3>
+        <div class="place-location">📍 Main Market Area, Muzaffarpur, Bihar</div>
+        <p class="place-desc">
+          Known as the Kashi Vishwanath of North Bihar. A historic Shiva shrine attracting pilgrims across India with magnificent Aarti rituals.
+        </p>
+        <div class="place-features">
+          <span class="chip">🎟️ VIP Darshan Slot</span>
+          <span class="chip">🔔 Bhasma Aarti Slot</span>
+          <span class="chip">🙏 Digital Prasad</span>
+        </div>
+        <button class="btn btn-primary" onclick="openBookingModal('Baba Garib Nath Temple', 'Spiritual Heritage', 30)">
+          🎟️ Book Smart Ticket / VIP Pass
+        </button>
+      </div>
+    </div>
+
+    <!-- MUZAFFARPUR PLACE 2: RAMCHANDRA SHAHI MUSEUM -->
+    <div class="place-card muzaffarpur">
+      <div class="place-img-wrapper">
+        <img src="assets/museum.jpg" alt="Ramchandra Shahi Museum Muzaffarpur" class="place-img">
+        <span class="city-tag">MUZAFFARPUR • CULTURE & PARK</span>
+        <span class="crowd-badge"><span class="dot-green"></span> Low Crowd (18%)</span>
+      </div>
+      <div class="place-content">
+        <h3 class="place-title">Ramchandra Shahi Museum</h3>
+        <div class="place-location">📍 Jubba Sahni Park, Muzaffarpur, Bihar</div>
+        <p class="place-desc">
+          Houses rare Mauryan period artifacts, ancient coins, stone sculptures, alongside lush memorial gardens dedicated to freedom hero Jubba Sahni.
+        </p>
+        <div class="place-features">
+          <span class="chip">📱 Smart QR Entry</span>
+          <span class="chip">🎧 Audio Guide (HI/EN)</span>
+          <span class="chip">🌳 Park Access</span>
+        </div>
+        <button class="btn btn-primary" onclick="openBookingModal('Ramchandra Shahi Museum', 'Cultural Heritage', 20)">
+          🎟️ Book Entry Pass & Audio Guide
+        </button>
+      </div>
+    </div>
+
+    <!-- MUZAFFARPUR PLACE 3: SHAHI LITCHI ORCHARDS -->
+    <div class="place-card muzaffarpur">
+      <div class="place-img-wrapper">
+        <img src="assets/litchi.jpg" alt="Shahi Litchi Orchards Muzaffarpur" class="place-img">
+        <span class="city-tag">MUZAFFARPUR • AGRO-HERITAGE</span>
+        <span class="crowd-badge"><span class="dot-green"></span> Prime Season (30%)</span>
+      </div>
+      <div class="place-content">
+        <h3 class="place-title">Shahi Litchi Orchards & Katra Fort</h3>
+        <div class="place-location">📍 Bochahan & Katra Region, Muzaffarpur</div>
+        <p class="place-desc">
+          Experience world-renowned GI-tagged Shahi Litchi gardens combined with ancient archaeological heritage ruins of Katra Fort.
+        </p>
+        <div class="place-features">
+          <span class="chip">🍇 Farm-to-Visitor Tour</span>
+          <span class="chip">🧺 Fresh Litchi Tasting</span>
+          <span class="chip">🏰 Heritage Walk</span>
+        </div>
+        <button class="btn btn-primary" onclick="openBookingModal('Shahi Litchi Orchards & Katra Fort', 'Agro-Heritage', 30)">
+          🎟️ Reserve Agro-Heritage Pass
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 4: ACTUAL LIVE TRIP EXECUTION HUB WITH JOURNEY TICKING & REARRANGE ENGINE -->
+<section class="section live-engine-section" id="live-planner">
+  <div class="section-header">
+    <span class="section-tag">LIVE TRIP EXECUTION ENGINE</span>
+    <h2 class="section-title">YATRA360 Live Journey Telemetry</h2>
+    <p class="section-desc">
+      Tick completed spots, track live vehicle progress, or rearrange unexecuted spots to Next Day with High or Low Constraints.
+    </p>
+  </div>
+
+  <!-- JOURNEY START CONTROL BANNER & ANIMATED TIMELINE -->
+  <div class="journey-start-banner">
+    <div class="banner-top">
+      <div>
+        <span class="pulse-live-badge"><span class="pulse-dot-green"></span> LIVE GPS TRACKER ACTIVE</span>
+        <h3 style="font-size:26px; font-weight:800; margin-top:8px;" id="bannerRouteTitle">Delhi → Agra (Day 1 Execution)</h3>
+        <p style="font-size:13.5px; opacity:0.85;">Current Leg: En route via Yamuna Expressway • Speed: 82 km/h • ETA: 08:15 AM</p>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <button class="btn btn-amber" id="startJourneyBtn" onclick="toggleJourneyStart()" style="padding:14px 26px; font-size:15px; box-shadow:0 0 20px rgba(245,158,11,0.5);">
+          🚀 START JOURNEY NOW
+        </button>
+        <button class="btn btn-outline" onclick="resetSim()" style="background:rgba(255,255,255,0.15); color:white; border-color:white;">
+          🔄 Reset Route
+        </button>
+      </div>
+    </div>
+
+    <!-- ANIMATED ROUTE PATH & VEHICLE TRACKER -->
+    <div class="route-anim-wrapper">
+      <div class="route-line-bg">
+        <div class="route-line-progress" id="routeProgressBar"></div>
+        <div class="vehicle-marker" id="vehicleMarker">🚗</div>
+      </div>
+
+      <div class="waypoint-nodes">
+        <div class="node-item active" id="node1">
+          <div class="node-dot"></div>
+          <div class="node-label">Start: Delhi</div>
+          <small style="font-size:10px; color:#34d399;">06:00 AM</small>
+        </div>
+        <div class="node-item" id="node2">
+          <div class="node-dot"></div>
+          <div class="node-label">Taj Mahal</div>
+          <small style="font-size:10px; opacity:0.8;">08:30 AM</small>
+        </div>
+        <div class="node-item" id="node3">
+          <div class="node-dot"></div>
+          <div class="node-label">Agra Fort</div>
+          <small style="font-size:10px; opacity:0.8;">12:30 PM</small>
+        </div>
+        <div class="node-item" id="node4">
+          <div class="node-dot"></div>
+          <div class="node-label">End: Hotel Check-in</div>
+          <small style="font-size:10px; color:#f59e0b;">08:15 PM</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="engine-card">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px; margin-bottom:20px;">
+      <div>
+        <h2 id="routeTitle" style="font-size:28px; font-weight:800; color:var(--teal-dark);">Delhi → Agra</h2>
+        <div style="color:var(--gray-text); font-size:14px;" id="tripMeta">20–22 September • 3 travellers • Heritage & Wonders</div>
+      </div>
+      <span style="background:var(--amber-light); color:var(--amber-dark); font-weight:800; padding:8px 16px; border-radius:20px; font-size:13px; border:1px solid rgba(245,158,11,0.3);">
+        🔒 Master Plan Protected
+      </span>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs-header">
+      <button id="t1" class="tab-btn active" onclick="tab('today')">📍 Today — Day 1 (Agra)</button>
+      <button id="t2" class="tab-btn" onclick="tab('overall')">🗺️ Master Trip Plan (Day 1 & Day 2)</button>
+      <button id="t3" class="tab-btn" onclick="tab('history')">📚 My Journey History</button>
+    </div>
+
+    <!-- TODAY EXECUTION TAB -->
+    <div id="today">
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <label>CURRENT LOCATION</label>
+          <b id="current">En route → Taj Mahal</b>
+        </div>
+        <div class="metric-box">
+          <label>ACCUMULATED DELAY</label>
+          <b id="delay" style="color:var(--teal-primary);">0 min</b>
+        </div>
+        <div class="metric-box">
+          <label>COMPLETED SPOTS</label>
+          <b id="done">0 / 4</b>
+        </div>
+        <div class="metric-box">
+          <label>HOTEL CHECK-IN ETA</label>
+          <b id="eta">8:30 PM</b>
+        </div>
+      </div>
+
+      <div id="alertBox" style="display:none; margin:16px 0; padding:16px; background:var(--amber-light); border:1px solid var(--amber-primary); border-radius:12px; color:var(--amber-dark); font-weight:600;">
+        ⚠️ <b>Day 1 automatically optimized:</b> <span id="alertText"></span>
+      </div>
+
+      <!-- LIVE DYNAMIC CONTROLS BAR -->
+      <div style="display:flex; gap:12px; margin:20px 0; flex-wrap:wrap; background:var(--teal-light); padding:16px; border-radius:var(--radius-md); border:1px solid var(--teal-primary);">
+        <button class="btn btn-primary" onclick="arrive()">📍 Log Arrival at Active Spot</button>
+        <button class="btn btn-amber" onclick="leave()">🚶 Leave Spot & Trigger Re-Plan</button>
+        <button class="btn btn-light" onclick="late()">⏰ Running Late (+30m Delay)</button>
+      </div>
+
+      <div style="margin-top:24px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+          <h3 style="font-size:18px; color:var(--slate-dark);">Today's Connected Daily Plan (Tick to Complete or Rearrange)</h3>
+          <small style="color:var(--gray-text);">☑️ Check items as you visit • 🗑️ Delete or 🔄 Rearrange skipped items</small>
+        </div>
+
+        <div class="itinerary-list-container" id="todayItineraryList">
+          
+          <!-- ITEM 0 -->
+          <div class="itinerary-item-card" id="card0">
+            <div class="tick-checkbox-wrapper">
+              <div class="custom-tick" id="tick0" onclick="toggleSpotTick(0)" title="Tick to mark completed"></div>
+            </div>
+            <div class="time-badge" id="time0">06:00–08:30</div>
+            <div>
+              <h4 style="font-size:16px;" id="title0">🕌 Taj Mahal (Sunrise Entry)</h4>
+              <p style="font-size:13px; color:var(--gray-text);">Sunrise VIP view & main mausoleum pass</p>
+              <div class="item-action-bar">
+                <button class="btn-danger" onclick="deleteSpot(0)">🗑️ Delete</button>
+                <button class="btn btn-outline" style="padding:4px 10px; font-size:11px;" onclick="openRearrangeModal(0, 'Taj Mahal (Sunrise Entry)')">🔄 Rearrange to Next Day</button>
+              </div>
+            </div>
+            <span id="s0" class="status-tag status-upcoming">UPCOMING</span>
+          </div>
+
+          <!-- ITEM 1 -->
+          <div class="itinerary-item-card" id="card1">
+            <div class="tick-checkbox-wrapper">
+              <div class="custom-tick" id="tick1" onclick="toggleSpotTick(1)" title="Tick to mark completed"></div>
+            </div>
+            <div class="time-badge" id="time1">09:30–12:30</div>
+            <div>
+              <h4 style="font-size:16px;" id="title1">🏰 Agra Fort</h4>
+              <p style="font-size:13px; color:var(--gray-text);">Mughal Palace & audio guide</p>
+              <div class="item-action-bar">
+                <button class="btn-danger" onclick="deleteSpot(1)">🗑️ Delete</button>
+                <button class="btn btn-outline" style="padding:4px 10px; font-size:11px;" onclick="openRearrangeModal(1, 'Agra Fort')">🔄 Rearrange to Next Day</button>
+              </div>
+            </div>
+            <span id="s1" class="status-tag status-upcoming">UPCOMING</span>
+          </div>
+
+          <!-- ITEM 2 -->
+          <div class="itinerary-item-card" id="card2">
+            <div class="tick-checkbox-wrapper">
+              <div class="custom-tick" id="tick2" onclick="toggleSpotTick(2)" title="Tick to mark completed"></div>
+            </div>
+            <div class="time-badge" id="time2">01:00–03:00</div>
+            <div>
+              <h4 style="font-size:16px;" id="title2">🍽️ Mughal Culinary & Handicrafts</h4>
+              <p style="font-size:13px; color:var(--gray-text);">Petha tasting & marble inlay craft</p>
+              <div class="item-action-bar">
+                <button class="btn-danger" onclick="deleteSpot(2)">🗑️ Delete</button>
+                <button class="btn btn-outline" style="padding:4px 10px; font-size:11px;" onclick="openRearrangeModal(2, 'Mughal Culinary & Handicrafts')">🔄 Rearrange to Next Day</button>
+              </div>
+            </div>
+            <span id="s2" class="status-tag status-upcoming">UPCOMING</span>
+          </div>
+
+          <!-- ITEM 3 -->
+          <div class="itinerary-item-card" id="card3">
+            <div class="tick-checkbox-wrapper">
+              <div class="custom-tick" id="tick3" onclick="toggleSpotTick(3)" title="Tick to mark completed"></div>
+            </div>
+            <div class="time-badge" id="time3">04:00–06:00</div>
+            <div>
+              <h4 style="font-size:16px;" id="title3">🌅 Mehtab Bagh Sunset View</h4>
+              <p style="font-size:13px; color:var(--gray-text);">Sunset view of Taj across Yamuna river</p>
+              <div class="item-action-bar">
+                <button class="btn-danger" onclick="deleteSpot(3)">🗑️ Delete</button>
+                <button class="btn btn-outline" style="padding:4px 10px; font-size:11px;" onclick="openRearrangeModal(3, 'Mehtab Bagh Sunset View')">🔄 Rearrange to Next Day</button>
+              </div>
+            </div>
+            <span id="s3" class="status-tag status-upcoming">UPCOMING</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="changesCard" style="display:none; margin-top:20px; padding:20px; background:var(--teal-light); border-radius:14px; border:1px solid var(--teal-primary);">
+        <h4 style="color:var(--teal-dark); margin-bottom:8px;">🔄 What YATRA360 AI Re-Optimized:</h4>
+        <div id="changeList" style="font-size:14px; line-height:1.7; color:var(--slate-dark);"></div>
+      </div>
+    </div>
+
+    <!-- OVERALL TAB -->
+    <div id="overall" style="display:none;">
+      <h3 style="margin-bottom:16px;">Master Trip Days Breakdown (Dynamic Next-Day Plan)</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px;">
+        <div style="background:var(--teal-light); padding:18px; border-radius:14px; border:2px solid var(--teal-primary);">
+          <small style="font-weight:800; color:var(--teal-dark);">DAY 1 EXECUTION</small>
+          <h4>Agra World Wonders</h4>
+          <p style="font-size:12px; color:var(--gray-text); margin-top:4px;">Taj Mahal + Agra Fort + Mehtab Bagh</p>
+        </div>
+        
+        <div style="background:var(--white); padding:18px; border-radius:14px; border:2px solid var(--amber-primary);" id="day2PlanCard">
+          <small style="font-weight:800; color:var(--amber-dark);">DAY 2 PLAN (ADAPTIVE)</small>
+          <h4>Fatehpur Sikri & Jaipur Drive</h4>
+          <p style="font-size:12px; color:var(--gray-text); margin-top:4px;">Buland Darwaza + Akbar City + Jaipur Hotel</p>
+          <div id="day2ShiftedItems" style="margin-top:12px; font-size:12px; display:flex; flex-direction:column; gap:6px;">
+            <!-- Shifted items appended here dynamically -->
+          </div>
+        </div>
+
+        <div style="background:var(--gray-bg); padding:18px; border-radius:14px; border:1px solid var(--gray-border);">
+          <small style="font-weight:800; color:var(--gray-text);">DAY 3 PLAN</small>
+          <h4>Jaipur Forts & Return</h4>
+          <p style="font-size:12px; color:var(--gray-text); margin-top:4px;">Amber Fort + Hawa Mahal + Delhi Return</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HISTORY TAB -->
+    <div id="history" style="display:none;">
+      <div style="background:linear-gradient(135deg,#0f172a,#0f766e); color:white; padding:24px; border-radius:14px; margin-bottom:20px;">
+        <h3>🧳 Completed Journey History</h3>
+        <p style="font-size:14px; opacity:0.85;">Recorded itinerary history with execution telemetry.</p>
+        <div style="display:flex; gap:30px; margin-top:16px;">
+          <div><b style="font-size:20px; color:var(--amber-primary);">100%</b><br><small>Execution Rate</small></div>
+          <div><b style="font-size:20px; color:var(--amber-primary);">0 Disrupted</b><br><small>Hotel Bookings</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: ENHANCED SMART HUB & DETAILED COSTING BREAKDOWN -->
+<section class="section" id="smart-modules">
+  <div class="section-header">
+    <span class="section-tag">AI SMART UTILITIES & COSTING</span>
+    <h2 class="section-title">YATRA360 Smart Hub & Right Costing</h2>
+    <p class="section-desc">
+      Transparent itemized budget breakdown, distance sequence optimization, weather shield sensors, and safety SOS dispatch.
+    </p>
+  </div>
+
+  <div class="cost-dashboard">
+    <!-- BUDGET TIER SELECTOR CARDS -->
+    <div class="cost-tier-bar">
+      <div class="tier-card" onclick="selectTier('eco', this)">
+        <h5>🌱 Budget Explorer Tier</h5>
+        <div class="price" id="ecoPrice">₹3,800 <small style="font-size:13px; font-weight:600; color:var(--gray-text);">/ person</small></div>
+        <small style="color:var(--gray-text);">Shared transit • Standard hotel • General passes</small>
+      </div>
+
+      <div class="tier-card active" onclick="selectTier('std', this)">
+        <h5>⚡ Comfort Explorer (Popular)</h5>
+        <div class="price" id="stdPrice">₹6,300 <small style="font-size:13px; font-weight:600; color:var(--gray-text);">/ person</small></div>
+        <small style="color:var(--gray-text);">AC Cab • 3-Star hotel • VIP Heritage passes</small>
+      </div>
+
+      <div class="tier-card" onclick="selectTier('lux', this)">
+        <h5>👑 Royal VIP Heritage Tier</h5>
+        <div class="price" id="luxPrice">₹10,500 <small style="font-size:13px; font-weight:600; color:var(--gray-text);">/ person</small></div>
+        <small style="color:var(--gray-text);">Private luxury SUV • 5-Star resort • Audio guides</small>
+      </div>
+    </div>
+
+    <!-- ITEMIZED COSTING BREAKDOWN GRID -->
+    <div class="cost-breakdown-grid">
+      <div class="cost-items-list">
+        <h4 style="font-size:18px; margin-bottom:12px; color:var(--slate-dark); display:flex; justify-content:space-between; align-items:center;">
+          <span>📋 Detailed Costing Breakdown (3-Day Trip)</span>
+          <span style="font-size:12px; font-weight:800; color:var(--teal-primary); background:var(--teal-light); padding:4px 10px; border-radius:12px;">Verified AI Rates</span>
+        </h4>
+
+        <div class="cost-item-row">
+          <div class="cost-item-left">
+            <div class="cost-icon-box" style="background:#e0f2fe; color:#0284c7;">🚆</div>
+            <div>
+              <div class="cost-item-name">Transport & Intercity Transit</div>
+              <div class="cost-item-sub">Delhi-Agra Shatabdi Express / AC Cruiser</div>
+            </div>
+          </div>
+          <div class="cost-item-amount" id="costTrans">₹1,800</div>
+        </div>
+
+        <div class="cost-item-row">
+          <div class="cost-item-left">
+            <div class="cost-icon-box" style="background:#ccfbf1; color:#0d9488;">🏨</div>
+            <div>
+              <div class="cost-item-name">Accommodation & Hotel Stay</div>
+              <div class="cost-item-sub">2 Nights heritage hotel with breakfast</div>
+            </div>
+          </div>
+          <div class="cost-item-amount" id="costStay">₹2,200</div>
+        </div>
+
+        <div class="cost-item-row">
+          <div class="cost-item-left">
+            <div class="cost-icon-box" style="background:#fef3c7; color:#d97706;">🎟️</div>
+            <div>
+              <div class="cost-item-name">Smart Heritage Passes & VIP Access</div>
+              <div class="cost-item-sub">Taj Mahal VIP + Agra Fort + Audio Guide</div>
+            </div>
+          </div>
+          <div class="cost-item-amount" id="costPass">₹650</div>
+        </div>
+
+        <div class="cost-item-row">
+          <div class="cost-item-left">
+            <div class="cost-icon-box" style="background:#fce7f3; color:#db2777;">🍽️</div>
+            <div>
+              <div class="cost-item-name">Local Dining & Mughlai Cuisine</div>
+              <div class="cost-item-sub">3 Days meals, Agra Petha & beverages</div>
+            </div>
+          </div>
+          <div class="cost-item-amount" id="costFood">₹1,150</div>
+        </div>
+
+        <div class="cost-item-row">
+          <div class="cost-item-left">
+            <div class="cost-icon-box" style="background:#dcfce7; color:#16a34a;">🛡️</div>
+            <div>
+              <div class="cost-item-name">Emergency Buffer Reserve</div>
+              <div class="cost-item-sub">Dynamic safety buffer for unexpected delays</div>
+            </div>
+          </div>
+          <div class="cost-item-amount" id="costBuf">₹500</div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; padding:16px 20px; background:var(--teal-light); border-radius:14px; border:1px solid var(--teal-primary);">
+          <div>
+            <b style="font-size:18px; color:var(--teal-dark);">TOTAL RIGHT COST PER PERSON</b>
+            <div style="font-size:12px; color:var(--gray-text);">Inclusive of all taxes, passes & dynamic safety buffer</div>
+          </div>
+          <b style="font-size:28px; color:var(--teal-dark);" id="totalCostDisplay">₹6,300</b>
+        </div>
+      </div>
+
+      <!-- VISUAL BUDGET DISTRIBUTION CHART -->
+      <div class="cost-progress-wrap">
+        <h4 style="font-size:18px; color:var(--amber-primary); margin-bottom:6px;">📊 Cost Proportion Graph</h4>
+        <p style="font-size:12.5px; color:#94a3b8; margin-bottom:16px;">AI algorithm allocates funds to maximize heritage experience while keeping safety buffer intact.</p>
+
+        <div class="bar-container">
+          <div class="bar-segment seg-trans" id="barTrans" style="width:28%;" title="Transport (28%)"></div>
+          <div class="bar-segment seg-stay" id="barStay" style="width:35%;" title="Stay (35%)"></div>
+          <div class="bar-segment seg-pass" id="barPass" style="width:10%;" title="Passes (10%)"></div>
+          <div class="bar-segment seg-food" id="barFood" style="width:18%;" title="Food (18%)"></div>
+          <div class="bar-segment seg-buf" id="barBuf" style="width:9%;" title="Buffer (9%)"></div>
+        </div>
+
+        <div class="legend-grid">
+          <div class="legend-item"><span class="legend-dot" style="background:var(--blue-primary);"></span> Transit (28%)</div>
+          <div class="legend-item"><span class="legend-dot" style="background:var(--teal-primary);"></span> Hotel Stay (35%)</div>
+          <div class="legend-item"><span class="legend-dot" style="background:var(--amber-primary);"></span> VIP Passes (10%)</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#ec4899;"></span> Dining (18%)</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#10b981;"></span> Reserve Buffer (9%)</div>
+        </div>
+
+        <div style="margin-top:20px; padding:14px; background:rgba(255,255,255,0.06); border-radius:12px; border:1px solid rgba(255,255,255,0.15); font-size:12.5px;">
+          ⚡ <b>YATRA360 Savings Alert:</b> Bundling Taj Mahal VIP Entry + Agra Fort Audio Guide saved <b>₹650</b> per person compared to individual gate booking!
+        </div>
+
+        <button class="btn btn-amber" style="width:100%; margin-top:16px; justify-content:center;" onclick="alert('⚡ AI Budget Recalculated! Latest verified rates applied.')">
+          ⚡ Recalculate Live Market Rates
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REARRANGE UNEXECUTED SPOT MODAL -->
+<div class="modal-overlay" id="rearrangeModal">
+  <div class="modal-card" style="max-width:480px;">
+    <button class="modal-close" onclick="closeRearrangeModal()">✕</button>
+    <h3 style="font-size:22px; color:var(--teal-dark); margin-bottom:4px;">🔄 Rearrange Spot to Next Day</h3>
+    <p style="font-size:13px; color:var(--gray-text); margin-bottom:20px;" id="rearrangeSpotName">Activity Title</p>
+
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <label style="font-size:12px; font-weight:800; color:var(--gray-text);">SELECT CONSTRAINT PRIORITY FOR DAY 2</label>
+      
+      <div style="background:var(--gray-bg); padding:16px; border-radius:12px; border:2px solid var(--amber-primary); cursor:pointer;" onclick="confirmRearrange('High')">
+        <b style="color:#b45309; font-size:15px; display:flex; align-items:center; gap:6px;">🔒 High Constraint (Hard Fixed)</b>
+        <p style="font-size:12px; color:var(--gray-text); margin-top:4px;">Fixed time slot required. Protects hotel & ticket deadlines by priority scheduling in Day 2 morning.</p>
+      </div>
+
+      <div style="background:var(--gray-bg); padding:16px; border-radius:12px; border:2px solid var(--gray-border); cursor:pointer;" onclick="confirmRearrange('Low')">
+        <b style="color:var(--teal-dark); font-size:15px; display:flex; align-items:center; gap:6px;">🔓 Low Constraint (Soft Flexible)</b>
+        <p style="font-size:12px; color:var(--gray-text); margin-top:4px;">Optional or flexible duration. Fits dynamically into Day 2 afternoon without disrupting hard bookings.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SMART HERITAGE BOOKING MODAL -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeBookingModal()">✕</button>
+    <h3 style="font-size:24px; color:var(--teal-dark); margin-bottom:6px;" id="modalPlaceTitle">Book Smart Heritage Pass</h3>
+    <p style="font-size:13px; color:var(--gray-text); margin-bottom:20px;" id="modalPlaceSub">Agra & Muzaffarpur Digital Pass Generator</p>
+
+    <div class="form-grid">
+      <div class="field">
+        <label>Visitor Name</label>
+        <input id="ticketName" value="Priya Sharma">
+      </div>
+      <div class="field">
+        <label>Visit Date</label>
+        <input id="ticketDate" type="date" value="2026-09-21">
+      </div>
+      <div class="field">
+        <label>Time Slot</label>
+        <select id="ticketSlot">
+          <option value="Sunrise Slot (06:00 AM - 08:30 AM)">Sunrise Slot (06:00 AM - 08:30 AM)</option>
+          <option value="Morning Slot (09:00 AM - 12:00 PM)">Morning Slot (09:00 AM - 12:00 PM)</option>
+          <option value="Afternoon Slot (12:30 PM - 03:30 PM)">Afternoon Slot (12:30 PM - 03:30 PM)</option>
+          <option value="Sunset Slot (04:00 PM - 06:30 PM)">Sunset Slot (04:00 PM - 06:30 PM)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>No. of Visitors</label>
+        <input id="ticketCount" type="number" min="1" max="10" value="2">
+      </div>
+    </div>
+
+    <div style="margin-top:16px;">
+      <label style="font-size:12px; font-weight:800; color:var(--gray-text); display:block; margin-bottom:8px;">ADD-ON EXPERIENCE</label>
+      <label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer;">
+        <input type="checkbox" id="audioCheck" checked> Include Smart Audio Guide & Battery Shuttle (+₹50)
+      </label>
+    </div>
+
+    <div style="margin-top:24px; display:flex; gap:12px;">
+      <button class="btn btn-primary" style="flex:1;" onclick="generateTicket()">
+        🎟️ Confirm & Generate Digital Pass
+      </button>
+    </div>
+
+    <!-- TICKET PREVIEW CONTAINER -->
+    <div id="ticketContainer" style="display:none;">
+      <div class="ticket-preview">
+        <div class="ticket-header">
+          <div>
+            <h4 style="font-size:18px; color:var(--amber-primary);" id="tktHeaderTitle">TAJ MAHAL VIP PASS</h4>
+            <span style="font-size:11px; opacity:0.8;">YATRA360 SMART HERITAGE PASS</span>
+          </div>
+          <div style="text-align:right;">
+            <b style="font-size:14px; color:var(--amber-primary);" id="tktPassID">#Y360-AGR-4029</b>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:16px;">
+          <div style="font-size:13px; line-height:1.7;">
+            <div><b>Name:</b> <span id="tktName">Priya Sharma</span></div>
+            <div><b>Date:</b> <span id="tktDate">21 Sep 2026</span></div>
+            <div><b>Slot:</b> <span id="tktSlot">Sunrise Slot</span></div>
+            <div><b>Visitors:</b> <span id="tktCount">2 Person(s)</span></div>
+            <div><b>Audio/Shuttle:</b> <span id="tktAudio">Active (HI/EN)</span></div>
+          </div>
+
+          <div class="qr-placeholder">
+            <!-- Inline SVG QR Code -->
+            <svg width="84" height="84" viewBox="0 0 100 100" fill="#0f172a">
+              <rect x="0" y="0" width="30" height="30" />
+              <rect x="5" y="5" width="20" height="20" fill="#fff" />
+              <rect x="10" y="10" width="10" height="10" />
+              
+              <rect x="70" y="0" width="30" height="30" />
+              <rect x="75" y="5" width="20" height="20" fill="#fff" />
+              <rect x="80" y="10" width="10" height="10" />
+
+              <rect x="0" y="70" width="30" height="30" />
+              <rect x="5" y="75" width="20" height="20" fill="#fff" />
+              <rect x="10" y="80" width="10" height="10" />
+
+              <rect x="40" y="10" width="15" height="15" />
+              <rect x="45" y="45" width="20" height="20" />
+              <rect x="70" y="70" width="15" height="15" />
+              <rect x="85" y="85" width="15" height="15" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px; display:flex; gap:10px;">
+        <button class="btn btn-amber" style="flex:1;" onclick="alert('Ticket PDF generated & downloaded successfully!')">
+          📥 Download PDF Pass
+        </button>
+        <button class="btn btn-outline" onclick="closeBookingModal()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AI CHATBOT WIDGET -->
+<button class="chatbot-trigger" onclick="toggleChat()">
+  <span class="chatbot-pulse"></span>
+  🤖 YATRA AI Assistant
+</button>
+
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-header">
+    <h4>🤖 YATRA360 AI Assistant</h4>
+    <button style="background:none; border:none; color:white; font-size:18px; cursor:pointer;" onclick="toggleChat()">✕</button>
+  </div>
+
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">
+      🙏 Namaste! I am your <b>YATRA360 AI Guide</b>. Ask me anything about Taj Mahal sunrise slots, Agra Fort, Garib Nath Temple, dynamic re-planning, or ticket rules!
+    </div>
+  </div>
+
+  <!-- QUICK FAQ CHIPS -->
+  <div class="faq-chips">
+    <button class="faq-btn" onclick="askFAQ('Best time to visit Taj Mahal?')">🕌 Taj Mahal sunrise time?</button>
+    <button class="faq-btn" onclick="askFAQ('How to book Agra Fort Light & Sound Show?')">🎆 Agra Fort show info?</button>
+    <button class="faq-btn" onclick="askFAQ('Best time to visit Baba Garib Nath Temple?')">🕉️ Garib Nath Temple timing?</button>
+    <button class="faq-btn" onclick="askFAQ('How does Dynamic Re-Planning protect my hotel check-in?')">⚡ Dynamic Planning logic?</button>
+  </div>
+
+  <div class="chat-footer">
+    <input type="text" id="chatInput" class="chat-input" placeholder="Type your question..." onkeypress="handleChatKey(event)">
+    <button class="chat-send" onclick="sendChatMessage()">➔</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h3>YATRA360°</h3>
+      <p>EASY TO EXPLORE THE INDIA — Next-Gen AI Journey Planner with real-time adaptive re-planning & Smart Heritage digital ticketing for Agra & Muzaffarpur.</p>
+    </div>
+
+    <div class="footer-col">
+      <h5>Agra Heritage</h5>
+      <ul>
+        <li><a href="#smart-heritage">Taj Mahal VIP Pass</a></li>
+        <li><a href="#smart-heritage">Agra Fort & Light Show</a></li>
+        <li><a href="#smart-heritage">Fatehpur Sikri Complex</a></li>
+        <li><a href="#smart-heritage">Mehtab Bagh Sunset</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Muzaffarpur Heritage</h5>
+      <ul>
+        <li><a href="#smart-heritage">Baba Garib Nath Temple</a></li>
+        <li><a href="#smart-heritage">Ramchandra Shahi Museum</a></li>
+        <li><a href="#smart-heritage">Shahi Litchi Orchards</a></li>
+        <li><a href="#smart-heritage">Katra Fort Ruins</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Theme Colors</h5>
+      <div style="display:flex; gap:8px; margin-top:10px;">
+        <span style="width:24px; height:24px; background:var(--teal-primary); border-radius:50%; display:inline-block;" title="Teal"></span>
+        <span style="width:24px; height:24px; background:var(--blue-primary); border-radius:50%; display:inline-block;" title="Blue"></span>
+        <span style="width:24px; height:24px; background:var(--amber-primary); border-radius:50%; display:inline-block;" title="Amber"></span>
+        <span style="width:24px; height:24px; background:var(--white); border-radius:50%; display:inline-block;" title="White"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 YATRA360. All Rights Reserved. Built for Smart India Innovation.</div>
+    <div>Designed with Teal, Blue, Amber & Crisp White aesthetics.</div>
+  </div>
+</footer>
+
+<!-- JAVASCRIPT LOGIC -->
+<script>
+let currentPlaceForBooking = "";
+let currentPlaceCategory = "";
+let currentSpotIndex = 0;
+let totalSpots = 4;
+let completedSpotsCount = 0;
+let journeyStarted = false;
+let journeyInterval = null;
+let journeyProgress = 0;
+let rearrangingSpotIndex = null;
+let rearrangingSpotTitle = "";
+
+const spotNames = ["Taj Mahal (Sunrise Entry)", "Agra Fort", "Mughal Culinary & Handicrafts", "Mehtab Bagh Sunset View"];
+
+// TICK SPOT COMPLETED TOGGLE
+function toggleSpotTick(index) {
+  const tickEl = document.getElementById('tick' + index);
+  const cardEl = document.getElementById('card' + index);
+  const tagEl = document.getElementById('s' + index);
+
+  if (!tickEl.classList.contains('checked')) {
+    tickEl.classList.add('checked');
+    tickEl.innerHTML = '✓';
+    cardEl.classList.add('completed');
+    tagEl.textContent = 'COMPLETED';
+    tagEl.className = 'status-tag status-done';
+    completedSpotsCount++;
+  } else {
+    tickEl.classList.remove('checked');
+    tickEl.innerHTML = '';
+    cardEl.classList.remove('completed');
+    tagEl.textContent = 'UPCOMING';
+    tagEl.className = 'status-tag status-upcoming';
+    completedSpotsCount = Math.max(0, completedSpotsCount - 1);
+  }
+
+  document.getElementById('done').textContent = completedSpotsCount + ' / ' + totalSpots;
+  updateRouteProgress();
+}
+
+// DELETE SPOT
+function deleteSpot(index) {
+  const cardEl = document.getElementById('card' + index);
+  if (confirm('Are you sure you want to delete "' + spotNames[index] + '" from today\'s plan?')) {
+    cardEl.classList.add('deleted');
+    totalSpots = Math.max(1, totalSpots - 1);
+    document.getElementById('done').textContent = completedSpotsCount + ' / ' + totalSpots;
+    alert('🗑️ Spot deleted. Daily itinerary time auto-rebalanced!');
+  }
+}
+
+// REARRANGE SPOT MODAL
+function openRearrangeModal(index, title) {
+  rearrangingSpotIndex = index;
+  rearrangingSpotTitle = title;
+  document.getElementById('rearrangeSpotName').textContent = title;
+  document.getElementById('rearrangeModal').classList.add('active');
+}
+
+function closeRearrangeModal() {
+  document.getElementById('rearrangeModal').classList.remove('active');
+}
+
+function confirmRearrange(constraintType) {
+  closeRearrangeModal();
+  const cardEl = document.getElementById('card' + rearrangingSpotIndex);
+  const tagEl = document.getElementById('s' + rearrangingSpotIndex);
+
+  cardEl.style.opacity = '0.5';
+  tagEl.textContent = 'MOVED TO DAY 2 (' + constraintType + ' CONSTR)';
+  tagEl.className = 'status-tag status-moved';
+
+  // Add item dynamically to Day 2 card preview
+  const container = document.getElementById('day2ShiftedItems');
+  const badgeColor = constraintType === 'High' ? '#ef4444' : '#f59e0b';
+  const lockIcon = constraintType === 'High' ? '🔒 High' : '🔓 Low';
+  
+  container.innerHTML += `
+    <div style="background:var(--gray-bg); padding:8px 12px; border-radius:8px; border:1px solid var(--gray-border); display:flex; justify-content:space-between; align-items:center;">
+      <span>• <b>${rearrangingSpotTitle}</b></span>
+      <span style="font-size:10px; font-weight:800; color:${badgeColor};">${lockIcon} Constr</span>
+    </div>
+  `;
+
+  alert('🔄 "' + rearrangingSpotTitle + '" rearranged to Day 2 with ' + constraintType + ' Constraint!');
+}
+
+// LIVE ITINERARY ACTIONS (FIXED ARRIVE, LEAVE, LATE)
+function arrive() {
+  const currentTitle = spotNames[currentSpotIndex] || "Spot " + (currentSpotIndex + 1);
+  document.getElementById('current').textContent = currentTitle;
+  
+  const tagEl = document.getElementById('s' + currentSpotIndex);
+  if (tagEl) {
+    tagEl.textContent = 'IN PROGRESS';
+    tagEl.className = 'status-tag status-live';
+  }
+
+  alert('📍 Logged arrival at: ' + currentTitle);
+}
+
+function leave() {
+  const currentTitle = spotNames[currentSpotIndex] || "Spot";
+  const tickEl = document.getElementById('tick' + currentSpotIndex);
+  if (tickEl && !tickEl.classList.contains('checked')) {
+    toggleSpotTick(currentSpotIndex);
+  }
+
+  currentSpotIndex = Math.min(spotNames.length - 1, currentSpotIndex + 1);
+  document.getElementById('current').textContent = 'En route → ' + spotNames[currentSpotIndex];
+  
+  document.getElementById('delay').textContent = '+45 min';
+  document.getElementById('delay').style.color = 'var(--amber-dark)';
+  document.getElementById('eta').textContent = '8:15 PM';
+
+  document.getElementById('alertBox').style.display = 'block';
+  document.getElementById('alertText').textContent = '45-minute delay detected at ' + currentTitle + '. YATRA360 re-calculated remaining slots & protected 8:30 PM Hotel Deadline!';
+
+  document.getElementById('changesCard').style.display = 'block';
+  document.getElementById('changeList').innerHTML = `
+    • <b>${currentTitle}:</b> Completed.<br>
+    • <b>Next Spot (${spotNames[currentSpotIndex]}):</b> Shifted slot by +45m.<br>
+    • <b>Hotel Check-in:</b> Protected for 08:15 PM (Safe ETA).
+  `;
+
+  alert('🚶 Departure logged! Re-planning engine executed for remaining day.');
+}
+
+function late() {
+  const currentDelay = parseInt(document.getElementById('delay').textContent) || 0;
+  const newDelay = currentDelay + 30;
+  document.getElementById('delay').textContent = '+' + newDelay + ' min';
+  document.getElementById('delay').style.color = 'var(--amber-dark)';
+
+  document.getElementById('alertBox').style.display = 'block';
+  document.getElementById('alertText').textContent = newDelay + '-minute delay added to schedule. YATRA360 dynamically auto-buffered remaining itinerary.';
+  alert('⏰ Running Late (+30m) logged! Dynamic buffers applied.');
+}
+
+function updateRouteProgress() {
+  const pct = Math.min(100, Math.round((completedSpotsCount / totalSpots) * 100));
+  document.getElementById('routeProgressBar').style.width = pct + '%';
+  document.getElementById('vehicleMarker').style.left = pct + '%';
+}
+
+// JOURNEY START & ANIMATION TRACKER
+function toggleJourneyStart() {
+  const btn = document.getElementById('startJourneyBtn');
+  const marker = document.getElementById('vehicleMarker');
+  const progressBar = document.getElementById('routeProgressBar');
+
+  if (!journeyStarted) {
+    journeyStarted = true;
+    btn.innerHTML = '⏸️ PAUSE JOURNEY';
+    btn.className = 'btn btn-outline';
+    btn.style.background = 'rgba(255,255,255,0.2)';
+    btn.style.color = 'white';
+    
+    alert('🚀 Live Journey Started! Real-time GPS tracking animation active.');
+
+    journeyInterval = setInterval(() => {
+      if (journeyProgress < 90) {
+        journeyProgress += 15;
+        progressBar.style.width = journeyProgress + '%';
+        marker.style.left = journeyProgress + '%';
+
+        if (journeyProgress >= 30) {
+          document.getElementById('node2').classList.add('active');
+        }
+        if (journeyProgress >= 60) {
+          document.getElementById('node3').classList.add('active');
+        }
+      } else {
+        clearInterval(journeyInterval);
+      }
+    }, 1500);
+  } else {
+    journeyStarted = false;
+    clearInterval(journeyInterval);
+    btn.innerHTML = '🚀 RESUME JOURNEY';
+    btn.className = 'btn btn-amber';
+  }
+}
+
+// COSTING TIER SELECTOR
+function selectTier(type, card) {
+  document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('active'));
+  card.classList.add('active');
+
+  const trans = document.getElementById('costTrans');
+  const stay = document.getElementById('costStay');
+  const pass = document.getElementById('costPass');
+  const food = document.getElementById('costFood');
+  const buf = document.getElementById('costBuf');
+  const total = document.getElementById('totalCostDisplay');
+
+  if (type === 'eco') {
+    trans.textContent = '₹1,100';
+    stay.textContent = '₹1,400';
+    pass.textContent = '₹350';
+    food.textContent = '₹650';
+    buf.textContent = '₹300';
+    total.textContent = '₹3,800';
+    updateCostBars(29, 37, 9, 17, 8);
+  } else if (type === 'std') {
+    trans.textContent = '₹1,800';
+    stay.textContent = '₹2,200';
+    pass.textContent = '₹650';
+    food.textContent = '₹1,150';
+    buf.textContent = '₹500';
+    total.textContent = '₹6,300';
+    updateCostBars(28, 35, 10, 18, 9);
+  } else if (type === 'lux') {
+    trans.textContent = '₹3,200';
+    stay.textContent = '₹4,500';
+    pass.textContent = '₹1,100';
+    food.textContent = '₹1,200';
+    buf.textContent = '₹500';
+    total.textContent = '₹10,500';
+    updateCostBars(30, 43, 10, 12, 5);
+  }
+}
+
+function updateCostBars(t, s, p, f, b) {
+  document.getElementById('barTrans').style.width = t + '%';
+  document.getElementById('barStay').style.width = s + '%';
+  document.getElementById('barPass').style.width = p + '%';
+  document.getElementById('barFood').style.width = f + '%';
+  document.getElementById('barBuf').style.width = b + '%';
+}
+
+// PRESET SELECTOR
+function setPreset(src, dest, vibe) {
+  document.getElementById('sourceInput').value = src;
+  document.getElementById('destinationInput').value = dest;
+  document.getElementById('styleInput').value = vibe;
+}
+
+// DESTINATION FILTER
+function filterPlaces(city, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const cards = document.querySelectorAll('.place-card');
+  cards.forEach(card => {
+    if (city === 'all') {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = card.classList.contains(city) ? 'flex' : 'none';
+    }
+  });
+}
+
+// TAB SWITCHER
+function tab(x) {
+  ['today','overall','history'].forEach(id => {
+    document.getElementById(id).style.display = (id === x ? 'block' : 'none');
+  });
+  document.getElementById('t1').classList.toggle('active', x==='today');
+  document.getElementById('t2').classList.toggle('active', x==='overall');
+  document.getElementById('t3').classList.toggle('active', x==='history');
+}
+
+// PLAN TRIP FUNCTION
+function planTrip() {
+  const source = (document.getElementById('sourceInput').value || '').trim();
+  const dest = (document.getElementById('destinationInput').value || '').trim();
+  const start = document.getElementById('startInput').value;
+  const end = document.getElementById('endInput').value;
+  const travellers = document.getElementById('travellersInput').value || 1;
+  const style = document.getElementById('styleInput').value || 'Heritage';
+
+  if (!source || !dest || !start || !end) {
+    alert('Please enter Source, Destination, Start Date, and End Date.');
+    return;
+  }
+
+  document.getElementById('routeTitle').textContent = source + ' → ' + dest;
+  document.getElementById('bannerRouteTitle').textContent = source + ' → ' + dest + ' (Live Tracking)';
+  document.getElementById('tripMeta').textContent = start + ' to ' + end + ' • ' + travellers + ' Travellers • ' + style;
+
+  const planResult = document.getElementById('planResult');
+  planResult.style.display = 'block';
+  planResult.innerHTML = `
+    <b>🎉 AI Itinerary Generated!</b><br>
+    Route: <b>${source} → ${dest}</b> optimized with dynamic re-planning.<br>
+    Hard deadline set: Hotel check-in by 8:30 PM. Right Costing: ₹6,300/person.
+  `;
+
+  document.getElementById('current').textContent = source + ' → ' + dest;
+  alert('✨ YATRA360 AI has generated your trip plan & right cost calculations!');
+}
+
+function swapLocations() {
+  const a = document.getElementById('sourceInput');
+  const b = document.getElementById('destinationInput');
+  [a.value, b.value] = [b.value, a.value];
+}
+
+function resetSim() {
+  arrived = false;
+  left = false;
+  journeyStarted = false;
+  journeyProgress = 0;
+  completedSpotsCount = 0;
+  totalSpots = 4;
+  currentSpotIndex = 0;
+  if(journeyInterval) clearInterval(journeyInterval);
+
+  const btn = document.getElementById('startJourneyBtn');
+  btn.innerHTML = '🚀 START JOURNEY NOW';
+  btn.className = 'btn btn-amber';
+
+  document.getElementById('routeProgressBar').style.width = '0%';
+  document.getElementById('vehicleMarker').style.left = '0%';
+
+  document.getElementById('delay').textContent = '0 min';
+  document.getElementById('delay').style.color = 'var(--teal-primary)';
+  document.getElementById('alertBox').style.display = 'none';
+  document.getElementById('changesCard').style.display = 'none';
+  document.getElementById('done').textContent = '0 / 4';
+  document.getElementById('current').textContent = 'En route → Taj Mahal';
+  
+  for(let i=0; i<4; i++) {
+    const cardEl = document.getElementById('card' + i);
+    const tickEl = document.getElementById('tick' + i);
+    const tagEl = document.getElementById('s' + i);
+    if (cardEl) { cardEl.classList.remove('completed'); cardEl.classList.remove('deleted'); cardEl.style.opacity = '1'; }
+    if (tickEl) { tickEl.classList.remove('checked'); tickEl.innerHTML = ''; }
+    if (tagEl) { tagEl.textContent = 'UPCOMING'; tagEl.className = 'status-tag status-upcoming'; }
+  }
+
+  document.getElementById('day2ShiftedItems').innerHTML = '';
+  document.getElementById('simLog').textContent = '🟢 System Status: Operating normally. All constraints on track.';
+  alert('🔄 Daily planner & route tracker reset to default state.');
+}
+
+// BOOKING MODAL LOGIC
+function openBookingModal(placeName, category, price) {
+  currentPlaceForBooking = placeName;
+  currentPlaceCategory = category;
+  document.getElementById('modalPlaceTitle').textContent = 'Book Ticket: ' + placeName;
+  document.getElementById('modalPlaceSub').textContent = category + ' • Smart Pass Generator';
+  document.getElementById('ticketContainer').style.display = 'none';
+  document.getElementById('bookingModal').classList.add('active');
+}
+
+function closeBookingModal() {
+  document.getElementById('bookingModal').classList.remove('active');
+}
+
+function generateTicket() {
+  const name = document.getElementById('ticketName').value || 'Visitor';
+  const date = document.getElementById('ticketDate').value || '2026-09-21';
+  const slot = document.getElementById('ticketSlot').value;
+  const count = document.getElementById('ticketCount').value || 1;
+  const audio = document.getElementById('audioCheck').checked ? 'Active (HI/EN)' : 'No';
+  const isAgra = currentPlaceCategory.toLowerCase().includes('agra') || currentPlaceForBooking.toLowerCase().includes('taj') || currentPlaceForBooking.toLowerCase().includes('sikri');
+  const codePrefix = isAgra ? 'Y360-AGR-' : 'Y360-MUZ-';
+  const randomID = codePrefix + Math.floor(1000 + Math.random() * 9000);
+
+  document.getElementById('tktHeaderTitle').textContent = currentPlaceForBooking.toUpperCase();
+  document.getElementById('tktPassID').textContent = '#' + randomID;
+  document.getElementById('tktName').textContent = name;
+  document.getElementById('tktDate').textContent = date;
+  document.getElementById('tktSlot').textContent = slot;
+  document.getElementById('tktCount').textContent = count + ' Person(s)';
+  document.getElementById('tktAudio').textContent = audio;
+
+  document.getElementById('ticketContainer').style.display = 'block';
+}
+
+// CHATBOT LOGIC
+function toggleChat() {
+  document.getElementById('chatPanel').classList.toggle('active');
+}
+
+function handleChatKey(e) {
+  if (e.key === 'Enter') sendChatMessage();
+}
+
+function sendChatMessage() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  appendChatMsg(msg, 'user');
+  input.value = '';
+
+  setTimeout(() => {
+    getAIResponse(msg);
+  }, 600);
+}
+
+function askFAQ(questionText) {
+  appendChatMsg(questionText, 'user');
+  setTimeout(() => {
+    getAIResponse(questionText);
+  }, 500);
+}
+
+function appendChatMsg(text, sender) {
+  const body = document.getElementById('chatBody');
+  const div = document.createElement('div');
+  div.className = 'chat-msg ' + sender;
+  div.innerHTML = text;
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+
+function getAIResponse(query) {
+  const q = query.toLowerCase();
+  let reply = "";
+
+  if (q.includes('taj') || q.includes('mahal') || q.includes('sunrise')) {
+    reply = "🕌 <b>Taj Mahal</b> opens 30 minutes before sunrise and closes 30 minutes before sunset (Closed on Fridays). Sunrise tickets are highly recommended to avoid crowds!";
+  } else if (q.includes('rearrange') || q.includes('constraint') || q.includes('delete')) {
+    reply = "🔄 <b>Unexecuted Spot Options:</b> Ticking ☑️ completes a spot. For skipped spots, click 🗑️ Delete or 🔄 Rearrange to Next Day with 🔒 High Constraint (Hard Fixed) or 🔓 Low Constraint (Soft Flexible)!";
+  } else if (q.includes('cost') || q.includes('budget') || q.includes('price')) {
+    reply = "💰 <b>YATRA360 Right Costing:</b> Our AI breaks down transport (₹1,800), stays (₹2,200), heritage passes (₹650), meals (₹1,150), and safety buffer (₹500) for a transparent ₹6,300/person 3-day trip!";
+  } else {
+    reply = "✨ YATRA360 AI is ready to help you plan trips across Agra, Muzaffarpur & all over India with smart route optimization, heritage tickets, and dynamic time management.";
+  }
+
+  appendChatMsg(reply, 'bot');
+}
+</script>
+</body>
+</html>
